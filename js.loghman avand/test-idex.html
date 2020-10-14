@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="releases.html">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+
+<p id="p1"> paragraph1</p>
+<button id="btn1" onclick="hide1()" ondblclick="show1()">click here</button>
+<script>
+    var parag = document.getElementById("p1");
+
+    function hide1() {
+        parag.style.display = "none";
+    }
+
+    function show1() {
+        parag.style.display = "block";
+    }
+
+</script>
+<hr>
+<!-------------similar example with jQuery --------------------->
+
+<p id="p2"><span class="hint--bottom" data-hint
+        ="Thank you!">paragraph2</span></p>
+<button id="btn2">click here</button>
+
+<script>
+    $("#btn2").click(function () {
+
+        /*$("#p2").fadeToggle();*/
+
+        $("#p2").slideToggle();
+    })
+
+</script>
+</body>
+</html>

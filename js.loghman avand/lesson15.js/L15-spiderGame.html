@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>spiderGame</title>
+
+
+    <style>
+        #spider {
+            width: 100px;
+            height: 100px;
+            z-index: 999;
+            border-radius: 50%;
+            position: fixed;
+        }
+
+        #bee {
+            width: 90px;
+            height: 70px;
+            border-radius: 50%;
+            position: fixed;
+            top: 200px;
+            z-index: 99;
+
+        }
+
+        .spiders-Web {
+            background: url(spiderGamePic/6fc8cea958de6a45670d3219899756c0.jpg) no-repeat center;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            transform: scale(7);
+
+        }
+
+        #timer {
+            position: fixed;
+            font-size: 100px;
+            color: red;
+            opacity: 0.1;
+            left: 20px;
+            top: 5px;
+
+        }
+
+    </style>
+</head>
+
+<body onload="insectPosition()" onkeydown="handleKey(event)">
+<img id='spider' src="spiderGamePic/images.jpg">
+<img id='bee' src="spiderGamePic/images (1).jpg">
+<div class='spiders-Web'></div>
+<div id="timer"></div>
+
+<script>
+    var spider = document.getElementById('spider')
+    var bee = document.getElementById('bee')
+
+    function rand(start, end) {
+        var rnd = start + Math.floor(Math.random() * (end - start));
+        return rnd;
+
+    }
+
+    function insectPosition() {
+        alert("hi, can you kill a bee?");
+
+        spider.style.top = rand(0, window.innerHeight - 50) + "px";
+        spider.style.left = rand(0, window.innerWidth - 50) + "px";
+        bee.style.top = rand(0, window.innerHeight - 50) + "px";
+        bee.style.left = rand(0, window.innerWidth - 50) + "px";
+        decreaseTime();
+
+
+    }
+
+    function handleKey(e) {
+        if (e.which === 39) {
+            moveSpider("right");
+
+            /*    if(e.keyCode===39){
+                    moveSpider("right");
+                }*/
+
+        } else if (e.which === 37) {
+            moveSpider("left");
+
+        } else if (e.which === 38) {
+            moveSpider("up");
+
+        } else if (e.which === 40) {
+            moveSpider("down");
+
+        }
+    }
+
+    function moveSpider(direction) {
+        var d = 10;
+        switch (direction) {
+            case "right":
+                spider.style.left = (spider.offsetLeft + d) + 'px';
+                spider.style.transform = "rotate(180deg)";
+                break;
+
+            case "left":
+                spider.style.left = (spider.offsetLeft - d) + 'px';
+                spider.style.transform = "rotate(0deg)";
+
+                break;
+
+            case "up":
+                spider.style.top = (spider.offsetTop - d) + 'px';
+                spider.style.transform = "rotate(90deg)";
+
+                break;
+
+            case "down":
+                spider.style.top = (spider.offsetTop + d) + 'px';
+                spider.style.transform = "rotate(-90deg)";
+
+        }
+        if (win(1)) {
+            alert("you are winner");
+            location.reload();
+        }
+
+
+    }
+
+    function win() {
+        return Math.abs(spider.offsetTop - bee.offsetTop) < 20 && Math.abs(spider.offsetLeft - bee.offsetLeft) < 20
+
+    }
+
+    var timer = document.getElementById("timer");
+    var remainingTime = 10;
+    timer.innerHTML = remainingTime;
+
+
+    function decreaseTime() {
+        if (Number(timer.innerHTML) <= 0) {
+            gameOver();
+            return;
+        }
+        timer.innerHTML = Number(timer.innerHTML) - 1;
+        setTimeout(function () {
+            decreaseTime();
+        }, 1000);
+
+
+    }
+
+    function gameOver() {
+        alert("hey you are looser!!");
+        location.reload();
+    }
+
+</script>
+</body>
+</html>

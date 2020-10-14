@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/@mdi/font/css/materialdesignicons.min.css">
+
+
+</head>
+<body>
+<p>
+    hi dears
+</p>
+<div id="div1">a</div>
+<div id="div2">m</div>
+<button onclick=clearInterval(IV1)>clearInterval</button>
+<button onclick=clearInterval(TO1)>clearTimeout</button>
+<br>
+<hr>
+
+<button id=btn3 onclick=toggleTime()>matina baradandar</button>
+<br>
+<hr>
+
+<button id="btn4" onclick=startRandNumber()> start</button>
+<button id="btn5" onclick=stopRandNumber()> stop</button>
+<button id="btn6" onclick=stopAllRandNumber()> stop all</button>
+<div id="div"></div>
+<div id="interval-id">setInterval id :</div>
+<br>
+<hr>
+<button onclick=fadeIn(div7)> fadeIn div7</button>
+<button onclick=fadeOut(div7)> fadeout div7</button>
+<div id="div7" style="background: pink;width: 100px;height: 100px"> this is my div7</div>
+
+<br>
+<hr>
+
+<button ondblclick="this.myFadeOut()" onclick="div8.myFadeIn()"> fadeIn div8</button>
+
+<button ondblclick="this.myFadeOut()" onclick="div8.myFadeOut()" )> fadeout div8</button>
+
+<div ondblclick="this.myFadeOut()" id="div8" style="background: blueviolet;width: 100px;height: 100px"> this is my
+    div8
+</div>
+<br>
+<hr>
+
+
+
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <script>
+
+        function rand(start, end) {
+            var rnd = start + Math.floor(Math.random() * (end - start));
+            return rnd;
+
+        }
+
+        //-------------------------------------------------------------
+
+        var name = prompt("enter your name please?")
+        while (1) {
+            try {
+                var age = prompt("enter your age?")
+                if (isNaN(age) || age < 0) {
+                    throw "sorry! your age in not valied"
+                } else if (age > 100) {
+                    throw "sorry!you are too old for do that"
+                } else {
+                    alert("thanke you dear " + name + " with " + age + " years old, here you are:")
+                    break;
+                }
+            } catch (e) {
+                alert(e)
+            }
+        }
+        //    -------------------------------------------------------------------
+
+
+        var div1 = document.getElementById("div1")
+        var div2 = document.getElementById("div2")
+
+        var IV1 = setInterval(function () {
+            div1.innerHTML = rand(0, 10)
+        }, 1000)
+
+
+        var TO1 = setTimeout(function () {
+
+            div2.innerHTML = rand(0, 10)
+        }, 3000)
+
+        //    -----------------------------------------------------------------------
+        function setTimeInBtn() {
+            var btn3 = document.getElementById("btn3")
+            var dt = new Date()
+            btn3.innerHTML = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds()
+        }
+
+        var tg = setInterval(function () {
+            setTimeInBtn()
+        }, 1000)
+
+        function toggleTime() {
+            if (tg > 0) {
+                clearInterval(tg);
+                tg = 0
+            } else {
+                tg = setInterval(function () {
+                    setTimeInBtn()
+                }, 1000)
+
+            }
+        }
+
+        //    --------------------------------------------------------------------------------------
+
+        var btn4 = document.getElementById("btn4")
+        var btn5 = document.getElementById("btn5")
+        var btn6 = document.getElementById("btn6")
+        var div = document.getElementById("div")
+        var intervalId = document.getElementById("interval-id")
+        var sI;
+
+        function startRandNumber() {
+            var randomColor = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")"
+            sI = setInterval(function () {
+                div.innerHTML += "<span style='color:" + randomColor + "'>" + rand(10, 99) + "</span>" + "&nbsp;"
+            }, 1000)
+
+            intervalId.innerHTML += "&nbsp;" + sI;
+        }
+
+        function stopRandNumber() {
+            clearInterval(sI);
+        }
+
+        function stopAllRandNumber() {
+            for (var i = 1; i <= 100; i++) {
+                clearInterval(i);
+            }
+        }
+
+        // -------------------------------------------------------------------------------------------------------------------
+
+
+        var div7 = document.getElementById("div7");
+
+        function fadeIn(elem) {
+
+            var elemOpacity = Number(getComputedStyle(elem).opacity).toPrecision(2);
+            elem.style.opacity = elemOpacity
+            if (elemOpacity >= 1) {
+                return;
+            }
+            elem.style.opacity = Number(elemOpacity) + 0.1;
+
+            setTimeout(function () {
+                fadeIn(elem)
+            }, 100)
+
+
+        }
+
+        function fadeOut(elem) {
+
+            var elemOpacity = Number(getComputedStyle(elem).opacity).toPrecision(2);
+            elem.style.opacity = elemOpacity
+
+            if (elemOpacity <= 0) {
+                return;
+            }
+            elem.style.opacity = Number(elemOpacity) - 0.1;
+
+            setTimeout(function () {
+                fadeOut(elem)
+            }, 100)
+
+        }
+
+        //    -------------------------------------------------------------------------------
+
+        var div8 = document.getElementById("div8");
+
+        Element.prototype.myFadeIn = function () {
+            fadeIn(this);
+        }
+
+        Element.prototype.myFadeOut = function () {
+            fadeOut(this);
+        }
+
+        //--------------------------------------------------------------------------------
+
+    </script>
+</body>
+</html>

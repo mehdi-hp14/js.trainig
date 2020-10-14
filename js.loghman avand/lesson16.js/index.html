@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        * {
+            padding: 15px;
+            font-size: 24px;
+        }
+
+        .spn {
+            display: inline-block;
+        }
+
+        .text-red {
+            color: red;
+        }
+
+        .text-blue {
+            color: blue;
+        }
+
+        .text-green {
+            color: green;
+        }
+
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .bg-gray {
+            background-color: gray;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+<p class="p1 bg-pink"> paragraph1</p>
+<p class="p2 bg-yellow"> paragraph2 <br>
+    <span class="spn text-red"> span1 </span>
+    <span class="spn text-blue"> span2 </span>
+    <span class="spn text-green"> span3 </span>
+</p>
+<p class="p3 bg-gray"> paragraph3</p>
+<button class="btn" onclick="addMatinaToSpan()"> add Matina</button>
+<button class="btn1"> add Mehdi</button>
+
+<script>
+    function addMatinaToSpan() {
+        $(".spn").append("<strong>Matina</strong>");
+
+    }
+
+    $('p').append("<strong>Man & To</strong>");
+
+    $("button.btn1").click(function () {
+        $(".spn").append("<strong>Mehdi</strong>");
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        * {
+            padding: 15px;
+            font-size: 24px;
+        }
+
+        .spn {
+            display: inline-block;
+        }
+
+        .text-red {
+            color: red;
+        }
+
+        .text-blue {
+            color: blue;
+        }
+
+        .text-green {
+            color: green;
+        }
+
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .bg-gray {
+            background-color: gray;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
+
+        .bg-blue {
+            background-color: blue;
+        }
+    </style>
+
+</head>
+<body>
+<p class="p1 bg-pink"> paragraph1</p>
+<p class="p2 bg-yellow"> paragraph2 <br>
+    <span class="spn text-red"> span1 </span>
+    <span class="spn text-blue"> span2 </span>
+    <span class="spn text-green"> span3 </span>
+</p>
+<p class="p3 bg-gray"> paragraph31</p>
+<p class="p3 bg-gray"> paragraph32</p>
+
+  <hr>
+<p class="p4 bg-gray"> paragraph41</p>
+<p class="p4 bg-gray"> paragraph42</p>
+
+
+<script>
+    $(document).ready(function () {
+        alert($(".p5").html())
+
+    });
+
+    alert($(".p6").html());
+
+    $(".p3").click(function () {
+
+        alert($(".p3").html())
+
+    });
+
+    $(".p4").click(function () {
+
+        alert($(this).html())
+
+    });
+
+</script>
+<p class="p5 bg-pink"> paragraph5</p>
+<p class="p6 bg-blue"> paragraph6</p>
+</body>
+</html>

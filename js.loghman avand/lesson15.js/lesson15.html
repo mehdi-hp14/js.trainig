@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/@mdi/font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="lesson15.css" type="text/css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="fix">
+    <div class="row ">
+        <div class="col-md-12">
+            <button class=" btn " onclick="smoothScroll(1000)">smooth scrool to 1000px</button>
+            <button class="btn " onclick="smoothScroll(0)">smooth scrool to top</button>
+        </div>
+
+    </div>
+
+    <br>
+    <div class="row ">
+        <div class="col-md-12">
+            <button class="btn " onclick="window.scrollTo(100,1500)">smooth scrool to 1500px</button>
+            <button class="btn " onclick="window.scrollTo(0,0)">smooth scrool to top</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="center1">
+    <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p>
+        <br>
+
+</div>
+
+<div class="navigation">
+    <nav id="menuTop">
+        <li><a href="#">خانه</a></li>
+        <li><a href="#">درباره ی ما</a></li>
+        <li><a href="#">اشتراک گذاری</a></li>
+        <li><a href="#">دسترسی به سایر صفحات</a></li>
+        <li><a href="#">تماس با ما</a></li>
+    </nav>
+</div>
+
+<div class="center">
+
+    <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    </p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+        <br>
+    <p>matina</p><br>
+    <p>mehdi
+    <p><br>
+
+
+</div>
+<script>
+    function smoothScroll(ypos) {
+        var step = 20;
+        if (ypos < scrollY) {
+            step *= -1
+        }
+        if (Math.abs(ypos - scrollY) <= 20) {
+            return;
+        }
+        window.scrollBy(0, step);
+        setTimeout(function () {
+            smoothScroll(ypos)
+        }, 10)
+
+    }
+
+    /*  var originalSmoothScroll = scrollTo
+      scrollTo = function (x, y) {
+          smoothScroll(y);
+
+      }*/
+
+    //--------------------------------------------------------------------------------
+
+    function fadeIn(elem) {
+
+        var elemOpacity = Number(getComputedStyle(elem).opacity).toPrecision(2);
+        elem.style.opacity = elemOpacity
+        if (elemOpacity >= 1) {
+            return;
+        }
+        elem.style.opacity = Number(elemOpacity) + 0.1;
+
+        setTimeout(function () {
+            fadeIn(elem)
+        }, 100)
+
+
+    }
+
+    function fadeOut(elem) {
+
+        var elemOpacity = Number(getComputedStyle(elem).opacity).toPrecision(2);
+        elem.style.opacity = elemOpacity
+
+        if (elemOpacity <= 0) {
+            return;
+        }
+        elem.style.opacity = Number(elemOpacity) - 0.1;
+
+        setTimeout(function () {
+            fadeOut(elem)
+        }, 100)
+
+    }
+
+    // Element.prototype.myFadeIn = function () {
+    //     fadeIn(this);
+    // }
+    //
+    // Element.prototype.myFadeOut = function () {
+    //     fadeOut(this);
+    // }
+
+    (function scrollTop() {
+        var goUpBtn = document.createElement("button");
+        var spanIn = document.createElement("span");
+        spanIn.className = "mdi mdi-arrow-up-box"
+        spanIn.id = "goUp"
+        goUpBtn.appendChild(spanIn)
+        document.body.appendChild(goUpBtn);
+
+        function goUpBtnVisibility() {
+            if (scrollY <= 500) {
+                // spanIn.myFadeOut();
+                fadeOut(spanIn);
+                /* goUpBtn.style.display = "none"*/
+            } else {
+                // spanIn.myFadeIn();
+                fadeIn(spanIn);
+                /*goUpBtn.style.display = "inline-block"*/
+            }
+
+        }
+
+
+        spanIn.addEventListener("click", function () {
+            smoothScroll(0);
+            /* scrollTo(0, 0)*/
+        });
+        window.addEventListener("scroll", goUpBtnVisibility);
+
+    }())
+
+    //    -----------------------------------------------------------------------------------------------------
+
+    var navbar = document.getElementById("menuTop");
+
+    window.addEventListener('scroll', function () {
+
+        var navClasses = navbar.getAttribute("class");
+
+        if (!navClasses) {
+            navbar.setAttribute("class", '');
+        }
+
+
+        if (window.scrollY <= navbar.offsetTop) {
+
+            navbar.setAttribute("class", navClasses.replace('sticky ',''))
+        } else {
+
+            if (navClasses.indexOf("sticky") == -1) {
+                navbar.setAttribute("class", navClasses + ' sticky ')
+            }
+
+        }
+
+    })
+
+</script>
+</body>
+</html>
