@@ -11,7 +11,17 @@
         * {
             padding: 15px;
             font-size: 24px;
+            /*     !* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ebf1f6+0,abd3ee+50,89c3eb+51,d5ebfb+100;Blue+Gloss+%234 *!
+                 background: rgb(235,241,246); !* Old browsers *!
+                 background: -moz-linear-gradient(top,  rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); !* FF3.6-15 *!
+                 background: -webkit-linear-gradient(top,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); !* Chrome10-25,Safari5.1-6 *!
+                 background: linear-gradient(to bottom,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); !* IE6-9 *!
+
+     */
+
         }
+
 
         .spn {
             display: inline-block;
@@ -44,10 +54,33 @@
         .bg-blue {
             background-color: blue;
         }
+
+        .name {
+            background-color: #9c95ef;
+            color: #a1d243;
+        }
+
+        .bg-purple {
+            background-color: mediumpurple;
+        }
+
     </style>
+    <script src="lesson17.js"></script>
 
 </head>
 <body>
+<script type="text/javascript"
+        src="http://www.webestools.com/google_map_gen.js?lati=35.746106&long=51.198502&zoom=18&width=675&height=400&mapType=normal&map_btn_normal=yes&map_btn_satelite=yes&map_btn_mixte=yes&map_small=yes&marqueur=yes&info_bulle="></script>
+<br/><a href="http://www.webestools.com/google-maps-code-generator-insert-map-on-website-javascript-free-google-map-script.html">Google
+    Maps code Generator</a>
+
+
+<hr>
+<script type="text/javascript"
+        src="http://www.webestools.com/google_map_gen.js?lati=37.209696&long=50.006579&zoom=20&width=675&height=400&mapType=normal&map_btn_normal=yes&map_btn_satelite=yes&map_btn_mixte=yes&map_small=yes&marqueur=yes&info_bulle="></script>
+<br/><a href="http://www.webestools.com/google-maps-code-generator-insert-map-on-website-javascript-free-google-map-script.html">Google
+    Maps code Generator</a>
+<hr>
 <p class="p1 bg-pink"> paragraph1</p>
 <p class="p2 bg-yellow"> paragraph2 <br>
     <span class="spn text-red"> span1 </span>
@@ -57,10 +90,13 @@
 <p class="p3 bg-gray"> paragraph31</p>
 <p class="p3 bg-gray"> paragraph32</p>
 
-  <hr>
+<hr>
 <p class="p4 bg-gray"> paragraph41</p>
 <p class="p4 bg-gray"> paragraph42</p>
 
+
+<input type="text" value="enter your last-name:" class="inp2">
+<input type="text" value="enter your pass:" class="inp3">
 
 <script>
     $(document).ready(function () {
@@ -82,8 +118,142 @@
 
     });
 
+    //----------- jquery  input methods------------
+    $(document).ready(function () {
+        $('.bt1').click(function () {
+            alert($('.p2').text());
+        });
+    });
+    $(document).ready(function () {
+        $('.bt2').click(function () {
+            alert($('.p2').html());
+        });
+    });
+
+    $(document).ready(function () {
+        $('.bt3').click(function () {
+            alert($('.inp1').val());
+        });
+    });
+
+    $(document).ready(function () {
+        $('.bt4').click(function () {
+            alert($('.p2').attr("class"));
+        });
+    });
+    //----------- jquery  output methods------------
+
+    $(".p1").text("matina jooon");
+    $(".p2").html("<b>matina</b> jooon");
+    $(".inp2").val("Baradandar");
+    $(".inp3").attr("type", "password");
+
+    //    --------------append,prepend,before,after-------------------
+
+    $(document).ready(function () {
+        $(".bt5").click(function () {
+            $(".p1").append(" <span class='name'> i am  matina baradandar</span>")
+        });
+    });
+
+    $(document).ready(function () {
+        $(".bt6").click(function () {
+            $(".p1").prepend(" <span class='name'> i am matina baradandar</span>")
+        });
+    });
+
+    $(document).ready(function () {
+        $(".bt7").click(function () {
+            $(".p1").before("  <span class='name'> i  matina baradandar</span>")
+        });
+    });
+
+    $(document).ready(function () {
+        $(".bt8").click(function () {
+            $(".p1").after(" <span class='name'>  matina baradandar</span>")
+        });
+    });
+
 </script>
 <p class="p5 bg-pink"> paragraph5</p>
 <p class="p6 bg-blue"> paragraph6</p>
+
+<input type="text" value="enter your name:" class="inp1">
+<br>
+<button class='bt1'> alert text</button>
+<button class='bt2'>alert html</button>
+<button class='bt3'>alert val</button>
+<button class='bt4'>alert attr</button>
+<hr>
+
+
+<button class='bt5'> show append in p1</button>
+<button class='bt6'>show prepend in p1</button>
+<button class='bt7'>show before p1</button>
+<button class='bt8'>show after p1</button>
+<!---------------------empty()/remove()------------------>
+
+<hr>
+<div class="p7 text-blue"> paragraph 7<br>
+    <span class="spn-t text-red"> span1 </span>
+    <span class="spn-t text-blue"> span2 </span>
+</div>
+<div class="p8 text-blue"> paragraph 8 <br>
+    <span class="spn text-red"> span1 </span>
+    <span class="test spn text-blue"> span2 </span>
+</div>
+<div class="p9 text-blue"> paragraph 9<br>
+    <span class="spn-d text-red"> span1 </span>
+    <span class="spn-d text-blue"> span2 </span>
+</div>
+<button class="btn9">remove span than paragraph 7</button>
+<button class="btn10">remove span2 than paragraph8</button>
+<button class="btn11">empty paragraph 9</button>
+<script>
+
+    $(document).ready(function () {
+        $(".btn9").click(function () {
+            $(".spn-t").remove();
+        });
+    });
+
+    $(document).ready(function () {
+        $(".btn10").click(function () {
+            $("span").remove(".test");
+        });
+    });
+    $(document).ready(function () {
+        $(".btn11").click(function () {
+            $(".spn-d").empty();
+        });
+    });
+
+</script>
+<!---------------------addClass()/removeClass()/toggleClass()------------------>
+<hr>
+<button class="btn12">addClass bg-purple to p9</button>
+<button class="btn13">removeClass text-blue than p9</button>
+<button class="btn14">toggleClass p9</button>
+
+<script>
+    $(document).ready(function () {
+        $(".btn12").click(function () {
+            $(".p9").addClass("bg-purple");
+        });
+    });
+
+    $(document).ready(function () {
+        $(".btn13").click(function () {
+            $(".p9").removeClass("text-blue");
+        });
+    });
+
+    $(document).ready(function () {
+        $(".btn14").click(function () {
+            $(".p9").toggleClass("text-blue");
+        });
+    });
+</script>
+
 </body>
 </html>

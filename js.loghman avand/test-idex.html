@@ -5,9 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="releases.html">
+    <title>title</title>
     <script src="jquery.min.js"></script>
+    <script src="jQueryColorPicker.min.js"></script>
+    <link rel="stylesheet" href="hint.css">
 </head>
 <body>
 
@@ -23,6 +24,10 @@
     function show1() {
         parag.style.display = "block";
     }
+
+    $(document).ready(function () {
+        $('.x').colorPicker(); // that's it
+    })
 
 </script>
 <hr>
@@ -45,5 +50,10 @@
 <p>matina is best</p>
 <hr>
 <p>mehdi is best too. chikar konim dg!</p>
+
+<hr>
+<input class="x">
+
+Hello Matina <span class="hint--bottom" aria-label="Thank you Matina!">hover over me.</span>
 </body>
 </html>
