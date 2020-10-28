@@ -203,7 +203,7 @@
     <span class="test spn text-blue"> span2 </span>
 </div>
 <div class="p9 text-blue"> paragraph 9<br>
-    <span class="spn-d text-red"> span1 </span>
+    <span class="spn-d text-red" id="star"> span1 </span>
     <span class="spn-d text-blue"> span2 </span>
 </div>
 <button class="btn9">remove span than paragraph 7</button>
@@ -255,5 +255,28 @@
     });
 </script>
 
+<!----------------------css()---------------------->
+
+<hr>
+<button class="btn15">show css("attribute")</button>
+<button class="btn16">show css("attribute","value")</button>
+<button class="btn17">show css(object{A:"a"})</button>
+
+<script>
+    $(document).ready(function () {
+        $(".btn15").click(function () {
+            alert($("#star").css("class"));
+        });
+
+        $(".btn16").click(function () {
+            $(".btn15").css("color", "red");
+        })
+
+        $(".btn17").click(function () {
+            $(".btn15").css({color:"pink",borderRadius:"20%",border:"2px solid red"});
+        })
+    });
+
+</script>
 </body>
 </html>
