@@ -103,30 +103,15 @@ alert($(".p6").html());
 /* input methods : text() , html() , val() , attr('A')*/
 
 
-<
-body >
-< input
-type = "text"
-value = "enter your name:"
-class
-= "inp1" >
-    < button
-class
-= 'bt1' > alert
-text < /button>
-< button
-class
-= 'bt2' > alert
-html < /button>
-< button
-class
-= 'bt3' > alert
-val < /button>
-< button
-class
-= 'bt4' > alert
-attr < /button>
+/*
+<body >
+< input type = "text" value = "enter your name:"  class="inp1" >
+    < button class= 'bt1' > alert text < /button>
+< button class= 'bt2' > alert html < /button>
+< button class= 'bt3' > alert val < /button>
+< button class= 'bt4' > alert attr < /button>
 < /body>
+*/
 
 //متد text() محتویات متنی و فضاهای خالی ( space) شی گرفته شده را نمایش می دهد.
 /*
@@ -134,6 +119,7 @@ attr < /button>
 $(document).ready(function () {
      $('.bt1').click(function () {
          alert($('.p2').text());
+
      });
  });
 
@@ -350,10 +336,54 @@ $(document).ready(function () {
 //-----------------------css()-----------------------------------
 
 //متد css() سه روش استفاده دارد که هر کدام کاربرد متفاوتی دارند.
-//1.در روش اول یک ویژگی درون string به جای پارامتر ورودی قرار می گیرد و سچس مقدار ان یرگردانده میشود.
+//1.در روش اول یک ویژگی css ای درون string به جای پارامتر ورودی قرار می گیرد و سپس مقدار ان برگردانده میشود.
 
-//2. در روش دوم یک ویژگی به همراه value ان درون string به جای پارامتر ورودی قرار گرفنه و به شی گرفنه شده الغا می شود.
+
+/*
+     $(".btn15").click(function () {
+            alert($(".star").css("color"));
+        });
+*/
+
+
+//2. در روش دوم یک ویژگی به همراه value ان درون string به جای پارامتر ورودی قرار گرفنه و به شی گرفنه شده القا می شود.
+
+
+/*
+$(".btn16").click(function () {
+         $(".btn15").css("color", "red");
+     })
+*/
+
 
 //در روش سوم چند ویژگی css به صورت object به جای پارامتر ورودی قرار می گیرد و مجموعه ای از تغیرات به شی گرفته شده اعمال می شود.
 
+
+/*
+$(".btn17").click(function () {
+        $(".btn15").css({color: "pink", borderRadius: "20%", border: "2px solid red"});
+    })
+*/
+
+
 //درون object ها هم مثل variable ها علامت دش قرار نمیگیرد.
+
+//--------------project-------------------
+// در نظر داریم کدی را طراحی کنیم که در ان با کلیک کردن روی هر تگ p محتوای درونی ان در تگ p دیگری با id خاص قرار بگیرد.
+
+/*
+<p class="copy-right"> in part ham tamom shod..</p>
+<p class="copy-right"> in ok hast..</p>
+<p id="result">...</p>
+<script>
+    $(document).ready(function () {
+
+        $(".copy-right").click(function () {
+
+            var text = $(this).html();
+
+            $("#result").html(text);
+
+        })
+    })
+</script>*/

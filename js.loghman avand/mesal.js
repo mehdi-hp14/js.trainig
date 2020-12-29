@@ -1,0 +1,109 @@
+var arr1 = [1, 2, 3, 4, 5];
+var sum = 0;
+var i;
+
+function mySum() {
+    for (i = 0; i < arr1.length; i++) {
+        sum += arr1[i];
+    }
+    document.getElementById("s").innerHTML = sum;
+};
+// ----------------------------------------------------------------
+
+
+var arr2 = [1, 2];
+var arr3 = [3, 4];
+var arr4 = [5, 6];
+var multiSum = 0;
+
+
+function myMultiSum() {
+    for (i = 0; i < arr2.length; i++) {
+        multiSum += arr2[i];
+    }
+    for (i = 0; i < arr3.length; i++) {
+        multiSum += arr3[i];
+    }
+    for (i = 0; i < arr4.length; i++) {
+        multiSum += arr4[i];
+    }
+    document.getElementById("multiS").innerHTML = multiSum;
+};
+//    --------------------------------------------------------------------
+
+var arr5 = [1, 2, 3, 4, 5, 3];
+var avg;
+var sum1 = 0;
+
+function myAvg() {
+    for (i = 0; i < arr5.length; i++) {
+        sum1 += arr5[i];
+        avg = sum1 / arr5.length;
+    }
+    document.getElementById("avg").innerHTML = avg;
+};
+//    ------------------------------------------------------------------
+
+
+var nT = document.getElementById("tt");
+(function (color, user) {
+    nT.innerHTML = "Hello <span style= 'color:" + color + "'>" + user + "</span>";
+}("green", "Matina"));
+
+//   -------------------------------------------------------------------
+// در js متدی به نام eval() وجود دارد که باعث می شود کدها ی درون ان به صورت ریاضی اجرا بشود.
+
+
+function cal() {
+    var aa = document.getElementById("i1").value;
+    var bb = document.getElementById("i2").value;
+    var namad = document.getElementById("na").value;
+    if (aa === undefined) {
+        aa = 0;
+    }
+    if (bb === undefined) {
+        bb = 0;
+    }
+
+
+    document.getElementById("i3").value = eval(Number(aa) + namad + Number(bb));
+
+
+}
+
+//    --------------------------------------------------------------------------
+// قرار دادن سه نقطه در پشت نام یک variable باعث می شود تام ان شی یا ارایه باز شود و خوانده شود.
+
+
+var f = [1, 2, 3, 8, 4, 4];
+var e = [0, 8, 9];
+var o = [4, 4, 5, 6, 6, 6, 6, 5, 12];
+var i;
+var s = 0;
+
+function f1() {
+
+    for (i in arguments) {
+        s += arguments[i];
+    }
+    return s;
+}
+
+console.log(f1(...e));
+
+//    ---------------------------------------------------------------------------
+function f2() {
+    var n = document.getElementById("inFactor").value;
+    var m = document.getElementById("result").value;
+
+    function factorial(n) {
+
+        if (n == 1) {
+            return 1;
+        }
+        console.log(n * factorial(n - 1));
+        return n * factorial(n - 1);
+        // document.getElementById("result").value =
+    }
+}
+
